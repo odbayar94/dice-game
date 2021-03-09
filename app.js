@@ -38,7 +38,7 @@ window.document
     playerScore[selectedPlayer] = playerScore[selectedPlayer] + roundScore;
     document.getElementById("score-" + selectedPlayer).textContent =
       playerScore[selectedPlayer];
-    if (playerScore[selectedPlayer] >= 20) {
+    if (playerScore[selectedPlayer] >= 100) {
       //<div class="player-name" id="name-0">Player 1</div>
       document.getElementById("name-" + selectedPlayer).textContent =
         "WINNER!!!";
