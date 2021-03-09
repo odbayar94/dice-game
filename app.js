@@ -66,6 +66,8 @@ function newGame() {
   document.getElementById("score-1").textContent = 0;
   document.querySelector(".player-0-panel").classList.add("active");
   document.querySelector(".player-1-panel").classList.remove("active");
+  document.querySelector(".btn-hold").style.display = "block";
+  document.querySelector(".btn-roll").style.display = "block";
 }
 
 function switchPlayer() {
