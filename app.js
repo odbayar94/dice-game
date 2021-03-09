@@ -11,8 +11,8 @@ document.getElementById("score-1").textContent = 0;
 document.getElementById("current-0").textContent = 0;
 document.getElementById("current-1").textContent = 0;
 
-var diceDOM = window.document.querySelector(".dice");
-diceDOM.style.display = "none";
+var diceDOM = window.document.querySelector(".dice1");
+// diceDOM.style.display = "none";
 window.document
   .querySelector(".btn-roll")
   .addEventListener("click", function () {
