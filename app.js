@@ -27,12 +27,7 @@ window.document
         "current-" + selectedPlayer
       ).textContent = roundScore;
     } else {
-      roundScore = 0;
-      diceDOM.style.display = "none";
-      document.getElementById("current-" + selectedPlayer).textContent = 0;
-      selectedPlayer === 0 ? (selectedPlayer = 1) : (selectedPlayer = 0);
-      document.querySelector(".player-0-panel").classList.toggle("active");
-      document.querySelector(".player-1-panel").classList.toggle("active");
+      switchPlayer();
     }
   });
 
@@ -43,21 +38,24 @@ window.document
     playerScore[selectedPlayer] = playerScore[selectedPlayer] + roundScore;
     document.getElementById("score-" + selectedPlayer).textContent =
       playerScore[selectedPlayer];
-    if (playerScore[selectedPlayer] >= 100) {
-      alert("Player " + selectedPlayer + " яллаа");
-      newGame();
+    if (playerScore[selectedPlayer] >= 20) {
+      //<div class="player-name" id="name-0">Player 1</div>
+      document.getElementById("name-" + selectedPlayer).textContent =
+        "WINNER!!!";
+      //<button class="btn-hold">
+      document.querySelector(".btn-hold").style.display = "none";
+      document.querySelector(".btn-roll").style.display = "none";
+      diceDOM.style.display = "none";
     } else {
-      roundScore = 0;
-      document.getElementById("current-" + selectedPlayer).textContent = 0;
-      selectedPlayer === 0 ? (selectedPlayer = 1) : (selectedPlayer = 0);
-      document.querySelector(".player-0-panel").classList.toggle("active");
-      document.querySelector(".player-1-panel").classList.toggle("active");
+      switchPlayer();
     }
   });
 
 window.document.querySelector(".btn-new").addEventListener("click", newGame);
 
 function newGame() {
+  document.getElementById("name-0").textContent = "Player 1";
+  document.getElementById("name-1").textContent = "Player 2";
   diceDOM.style.display = "none";
   selectedPlayer = 0;
   playerScore = [0, 0];
@@ -68,6 +66,15 @@ function newGame() {
   document.getElementById("score-1").textContent = 0;
   document.querySelector(".player-0-panel").classList.add("active");
   document.querySelector(".player-1-panel").classList.remove("active");
+}
+
+function switchPlayer() {
+  roundScore = 0;
+  diceDOM.style.display = "none";
+  document.getElementById("current-" + selectedPlayer).textContent = 0;
+  selectedPlayer === 0 ? (selectedPlayer = 1) : (selectedPlayer = 0);
+  document.querySelector(".player-0-panel").classList.toggle("active");
+  document.querySelector(".player-1-panel").classList.toggle("active");
 }
 
 //<img src="dice-5.png" alt="Dice" class="dice" />
